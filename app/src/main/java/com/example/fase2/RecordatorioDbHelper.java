@@ -193,6 +193,11 @@ public class RecordatorioDbHelper extends SQLiteOpenHelper {
         return recordatorio;
     }
 
+    public int limpiarCompletados() {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(TABLE_RECORDATORIOS, COL_ESTADO + " = ?", new String[]{Recordatorio.ESTADO_COMPLETADO});
+    }
+
     private String fechaHoy() {
         return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     }

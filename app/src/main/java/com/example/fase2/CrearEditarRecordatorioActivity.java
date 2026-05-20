@@ -174,6 +174,18 @@ public class CrearEditarRecordatorioActivity extends AppCompatActivity {
         }
     }
 
+    private void confirmarCancelar() {
+        String titulo = campoTitulo.getText().toString().trim();
+        String desc = campoDescripcion.getText().toString().trim();
+        if (titulo.isEmpty() && desc.isEmpty()) { finish(); return; }
+        new AlertDialog.Builder(this)
+                .setTitle("Descartar cambios")
+                .setMessage("¿Deseas salir sin guardar?")
+                .setPositiveButton("Descartar", (d, w) -> finish())
+                .setNegativeButton("Seguir editando", null)
+                .show();
+    }
+
     private void guardarRecordatorio() {
         String titulo = campoTitulo.getText().toString().trim();
         if (TextUtils.isEmpty(titulo)) {

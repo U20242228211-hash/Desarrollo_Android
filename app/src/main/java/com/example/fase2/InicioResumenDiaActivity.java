@@ -85,12 +85,18 @@ public class InicioResumenDiaActivity extends AppCompatActivity {
         textoCantidadCompletados.setText(String.valueOf(dbHelper.contarCompletados()));
     }
 
+    private int colorPrioridad(String prioridad) {
+        if ("Alta".equals(prioridad)) return 0xFFD32F2F;
+        if ("Media".equals(prioridad)) return 0xFFFFA000;
+        return 0xFF9E9E9E;
+    }
+
     private LinearLayout crearTarjeta(Recordatorio recordatorio) {
         LinearLayout tarjeta = new LinearLayout(this);
         tarjeta.setOrientation(LinearLayout.HORIZONTAL);
         tarjeta.setGravity(android.view.Gravity.CENTER_VERTICAL);
         tarjeta.setBackgroundColor(0xFFFFFFFF);
-        tarjeta.setPadding(24, 20, 24, 20);
+        tarjeta.setPadding(0, 0, 24, 0);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(0, 0, 0, 16);
@@ -98,8 +104,15 @@ public class InicioResumenDiaActivity extends AppCompatActivity {
         tarjeta.setClickable(true);
         tarjeta.setFocusable(true);
 
+        android.view.View barra = new android.view.View(this);
+        LinearLayout.LayoutParams barraParams = new LinearLayout.LayoutParams(16, ViewGroup.LayoutParams.MATCH_PARENT);
+        barra.setLayoutParams(barraParams);
+        barra.setBackgroundColor(colorPrioridad(recordatorio.getPrioridad()));
+        tarjeta.addView(barra);
+
         LinearLayout textos = new LinearLayout(this);
         textos.setOrientation(LinearLayout.VERTICAL);
+        textos.setPadding(20, 20, 0, 20);
         textos.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
 
         TextView titulo = new TextView(this);
@@ -117,6 +130,8 @@ public class InicioResumenDiaActivity extends AppCompatActivity {
         CheckBox checkBox = new CheckBox(this);
         checkBox.setClickable(true);
         checkBox.setFocusable(true);
+        checkBox.setMinWidth(48);
+        checkBox.setMinHeight(48);
         checkBox.setChecked(Recordatorio.ESTADO_COMPLETADO.equals(recordatorio.getEstado()));
         checkBox.setOnClickListener(v -> completarRecordatorio(recordatorio.getId()));
 
