@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -111,7 +113,7 @@ public class CrearEditarRecordatorioActivity extends AppCompatActivity {
             launcherAdjuntos.launch(intent);
         });
 
-        botonRegresar.setOnClickListener(v -> finish());
+        botonRegresar.setOnClickListener(v -> confirmarCancelar());
         botonGuardar.setOnClickListener(v -> guardarRecordatorio());
         botonSeleccionarFecha.setOnClickListener(v -> mostrarDatePicker());
         botonSeleccionarHora.setOnClickListener(v -> mostrarTimePicker());
@@ -252,6 +254,36 @@ public class CrearEditarRecordatorioActivity extends AppCompatActivity {
         });
 
         timePicker.show(getSupportFragmentManager(), "TIME_PICKER");
+    }
+
+    private boolean hayCambiosSinGuardar() {
+        String titulo = campoTitulo.getText().toString().trim();
+        String descripcion = campoDescripcion.getText().toString().trim();
+        if (recordatorioId > 0) {
+            Recordatorio original = dbHelper.obtenerPorId(recordatorioId);
+            if (original == null) return false;
+            return !titulo.equals(original.getTitulo())
+                    || !descripcion.equals(TextUtils.isEmpty(original.getDescripcion()) ? "" : original.getDescripcion().trim());
+        }
+        return !titulo.isEmpty() || !descripcion.isEmpty();
+    }
+
+    private void confirmarCancelar() {
+        if (!hayCambiosSinGuardar()) {
+            finish();
+            return;
+        }
+        new AlertDialog.Builder(this)
+                .setTitle("¿Descartar cambios?")
+                .setMessage("Tienes cambios sin guardar. ¿Deseas salir sin guardar?")
+                .setPositiveButton("Salir", (dialog, which) -> finish())
+                .setNegativeButton("Seguir editando", null)
+                .show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        confirmarCancelar();
     }
 
     private String formatearFechaVista(String fechaDb) {
