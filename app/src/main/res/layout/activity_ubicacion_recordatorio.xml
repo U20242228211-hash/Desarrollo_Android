@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:id="@+id/textoTituloUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación del Recordatorio"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Captura tu ubicación actual o escribe el lugar asociado al recordatorio."
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/campoUbicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: Casa, universidad, oficina..."
+        android:inputType="textPostalAddress|textCapSentences|textMultiLine"
+        android:minLines="2"
+        android:gravity="top"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/opcionRecordarAlLlegar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recordarme al llegar"
+        android:layout_marginBottom="8dp" />
+
+    <CheckBox
+        android:id="@+id/opcionRecordarAlSalir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recordarme al salir"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/botonCapturarUbicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capturar mi ubicación actual"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/botonOtraUbicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Escribir otra ubicación"
+        android:layout_marginBottom="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/botonVolverDesdeUbicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Volver"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/botonGuardarUbicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Guardar Ubicación"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+</LinearLayout>

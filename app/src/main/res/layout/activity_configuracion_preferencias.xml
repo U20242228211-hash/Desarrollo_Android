@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:id="@+id/textoTituloConfiguracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configuración"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <Switch
+        android:id="@+id/switchNotificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activar Notificaciones"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/opcionSonido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sonido"
+        android:checked="true"
+        android:layout_marginBottom="8dp" />
+
+    <CheckBox
+        android:id="@+id/opcionVibracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vibración"
+        android:checked="true"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anticipación del Recordatorio"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/selectorAnticipacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/botonCategoriasPersonalizadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gestionar Categorías Personalizadas"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/botonLimpiarHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Limpiar Historial Completado"
+        android:layout_marginBottom="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/botonVolverDesdeConfiguracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver al Inicio" />
+
+</LinearLayout>

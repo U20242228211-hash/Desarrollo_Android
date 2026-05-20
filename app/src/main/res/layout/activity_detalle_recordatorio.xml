@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textoTituloDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Título del Recordatorio"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/textoDescripcionDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta es la descripción detallada del recordatorio que se guardó previamente."
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:background="#FFFFFF"
+            android:padding="12dp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_marginBottom="16dp">
+
+            <TextView android:text="Categoría:" android:textStyle="bold" android:layout_marginEnd="8dp" />
+            <TextView android:id="@+id/textoCategoriaDetalle" android:text="Trabajo" />
+
+            <TextView android:text="Fecha:" android:textStyle="bold" android:layout_marginEnd="8dp" />
+            <TextView android:id="@+id/textoFechaDetalle" android:text="15/10/2023" />
+
+            <TextView android:text="Hora:" android:textStyle="bold" android:layout_marginEnd="8dp" />
+            <TextView android:id="@+id/textoHoraDetalle" android:text="10:00 AM" />
+
+            <TextView android:text="Prioridad:" android:textStyle="bold" android:layout_marginEnd="8dp" />
+            <TextView android:id="@+id/textoPrioridadDetalle" android:text="Alta" />
+
+            <TextView android:text="Estado:" android:textStyle="bold" android:layout_marginEnd="8dp" />
+            <TextView android:id="@+id/textoEstadoDetalle" android:text="Pendiente" />
+        </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adjuntos"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/seccionAdjuntosDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="imagen_ejemplo.jpg"
+            android:padding="8dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicación Asociada"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/seccionUbicacionDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sin ubicación asociada"
+            android:padding="8dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/botonMarcarCompletado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marcar como Completado"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/botonEditarRecordatorio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Editar"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/botonEliminarRecordatorio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eliminar"
+                    android:textColor="#D32F2F"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/botonCompartirRecordatorio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Compartir"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/botonVolverDesdeDetalle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Volver"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
